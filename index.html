@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110e">
+  <meta name="description" content="AlchemyPhi is a free interactive laboratory for refining ideas through the seven symbolic operations of alchemy.">
+  <title>AlchemyPhi · The Seven Operations Laboratory</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2310110e'/%3E%3Ctext x='32' y='47' font-size='48' text-anchor='middle' fill='%23d6b976'%3E%CE%A6%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body id="top">
+  <a href="#laboratory" class="skip-link">Skip to laboratory</a>
+  <div class="page-noise" aria-hidden="true"></div>
+  <header class="site-header container">
+    <a class="identity" href="#top" aria-label="AlchemyPhi home">
+      <span class="identity-sigil" aria-hidden="true">Φ</span>
+      <span class="identity-name">ALCHEMY<span>PHI</span><small>THE LIVING LABORATORY</small></span>
+    </a>
+    <nav aria-label="Main navigation" class="nav-links">
+      <a href="#method">The method</a>
+      <a href="#laboratory">Laboratory</a>
+      <a href="#principles">Principles</a>
+    </nav>
+    <a class="source-link" href="https://github.com/MichaelWave369/AlchemyPhi" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> MATTER · PROCESS · MEANING</div>
+        <h1 id="hero-title">The art of <em>becoming.</em></h1>
+        <p class="hero-lede">Seven ancient operations. One living cycle. A modern workbench for breaking down an idea, discovering what matters, and shaping something worth keeping.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#laboratory">Enter the laboratory <span aria-hidden="true">↗</span></a>
+          <a class="button button-quiet" href="#method">Explore the seven stages <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-footnote">An interpretive tool for learning and design, not a scientific or supernatural claim.</p>
+      </div>
+      <div class="hero-figure" aria-hidden="true">
+        <div class="alchemy-circle circle-outer"></div>
+        <div class="alchemy-circle circle-middle"></div>
+        <div class="alchemy-circle circle-inner"></div>
+        <div class="alchemy-orbit orbit-one">I</div>
+        <div class="alchemy-orbit orbit-two">II</div>
+        <div class="alchemy-orbit orbit-three">III</div>
+        <div class="alchemy-orbit orbit-four">IV</div>
+        <div class="alchemy-orbit orbit-five">V</div>
+        <div class="alchemy-orbit orbit-six">VI</div>
+        <div class="alchemy-orbit orbit-seven">VII</div>
+        <div class="hero-center"><span>Φ</span><small>SOLVE<br>ET<br>COAGULA</small></div>
+      </div>
+    </section>
+
+    <div class="thin-rule container" aria-hidden="true"><span>✧</span></div>
+
+    <section id="method" class="method container" aria-labelledby="method-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE SEVEN OPERATIONS</p>
+          <h2 id="method-title">A process that becomes a cycle.</h2>
+        </div>
+        <p>The names and traditional images come from alchemical writing. Their application to ideas, systems, and reflection is a modern metaphor.</p>
+      </div>
+      <div class="method-list" id="methodList" aria-label="Seven operation descriptions"></div>
+    </section>
+
+    <section id="laboratory" class="lab-section" aria-labelledby="lab-title">
+      <div class="container">
+        <div class="lab-topline">
+          <div>
+            <p class="eyebrow">THE ACTIVE WORKBENCH</p>
+            <h2 id="lab-title">Your transformation laboratory.</h2>
+          </div>
+          <div class="overall-progress" role="status" aria-live="polite">
+            <span id="progressCount">0 of 7 refined</span>
+            <div class="progress-track" aria-hidden="true"><div id="progressFill"></div></div>
+          </div>
+        </div>
+
+        <div class="step-rail" id="stageRail" aria-label="Choose an operation"></div>
+
+        <div class="workbench-grid">
+          <aside class="setup-panel" aria-labelledby="setup-title">
+            <div class="panel-kicker"><span class="status-dot"></span> LOCAL WORKSPACE <span id="cycleLabel">CYCLE 01</span></div>
+            <h3 id="setup-title">The raw material</h3>
+            <p class="panel-description">Every transformation starts with something. An idea, a question, a project, or a pattern you want to examine.</p>
+
+            <label for="projectName">Project or subject</label>
+            <input id="projectName" type="text" maxlength="160" autocomplete="off" placeholder="e.g. An offline knowledge garden">
+
+            <label for="projectGoal">What would a meaningful result look like?</label>
+            <textarea id="projectGoal" rows="3" maxlength="1200" placeholder="Name the outcome you're working toward."></textarea>
+
+            <label for="lensSelect">Interpretation lens</label>
+            <div class="select-wrap">
+              <select id="lensSelect">
+                <option value="systems">Systems & design</option>
+                <option value="human">Personal reflection</option>
+                <option value="matter">Historical symbolism</option>
+              </select>
+            </div>
+            <p class="field-hint">Change lenses without losing your notes.</p>
+
+            <div class="workspace-tools">
+              <button id="demoButton" class="small-button" type="button">Load example</button>
+              <button id="exportButton" class="small-button" type="button">Export JSON</button>
+              <button id="markdownButton" class="small-button" type="button">Export notes</button>
+              <button id="importButton" class="small-button" type="button">Import JSON</button>
+              <input id="importInput" type="file" accept=".json,application/json" hidden>
+            </div>
+            <p class="privacy-note">◈ Autosaved in this browser only. Export a copy before clearing your browser data or switching devices.</p>
+            <button class="reset-button" id="resetButton" type="button">Start a blank project ↺</button>
+
+            <details class="history">
+              <summary>Previous completed cycles <span id="historyCount">0</span></summary>
+              <div id="historyList"></div>
+            </details>
+          </aside>
+
+          <article class="operation-panel" aria-labelledby="activeTitle">
+            <div class="operation-topline">
+              <span id="operationLabel">OPERATION I · 01 / 07</span>
+              <span id="stageStatus" class="stage-status">IN PROCESS</span>
+            </div>
+            <div class="operation-head">
+              <div class="operation-symbol" id="operationSymbol" aria-hidden="true">♨</div>
+              <div>
+                <p class="operation-subtitle" id="activeSubtitle">The action of fire</p>
+                <h3 id="activeTitle">Calcination</h3>
+              </div>
+            </div>
+
+            <p class="operation-description" id="activeDescription"></p>
+
+            <div class="question-box">
+              <p>THE QUESTION TO CONSIDER</p>
+              <h4 id="activeQuestion"></h4>
+              <span id="activeHint"></span>
+            </div>
+
+            <div class="journal-heading">
+              <label for="journal">Laboratory journal</label>
+              <span id="charCount">0 characters</span>
+            </div>
+            <textarea class="journal-input" id="journal" rows="7" maxlength="12000" placeholder="Write your observations here. The work is yours to interpret."></textarea>
+            <p class="journal-note">A written observation is required to complete each stage. Notes can always be revised.</p>
+
+            <div class="operation-actions">
+              <button id="previousButton" class="button button-quiet" type="button">← Previous</button>
+              <button id="completeButton" class="button button-primary" type="button">Complete & continue →</button>
+            </div>
+
+            <div id="cycleCompleted" class="cycle-completed" hidden>
+              <div class="completion-glyph" aria-hidden="true">✧</div>
+              <h4>The cycle is complete.</h4>
+              <p>The final form can become the raw material for a new round. Your seven reflections will be archived locally.</p>
+              <button id="nextCycleButton" type="button" class="button button-outline">Begin the next cycle ↻</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles container" id="principles" aria-labelledby="principles-title">
+      <div>
+        <p class="eyebrow">THE PHI PRINCIPLE</p>
+        <h2 id="principles-title">Nothing finished.<br><em>Everything refining.</em></h2>
+      </div>
+      <div class="principle-text">
+        <p>In historical alchemy, these operations appeared in different traditions and sequences. AlchemyPhi uses one familiar seven-stage interpretation as an organizing framework, not as a universal historical canon.</p>
+        <p>Its systems and personal lenses are modern creative exercises. They can support reflection and iteration, but they do not establish chemical, psychological, or mystical truths.</p>
+        <p class="principle-close">Open by design. Private by default. Make something useful, then refine it again.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Φ <strong>ALCHEMYPHI</strong> <span class="footer-muted">· AN OPEN EXPERIMENT IN REFINEMENT</span></span>
+      <a href="https://github.com/MichaelWave369/AlchemyPhi" target="_blank" rel="noopener noreferrer">SOURCE / CONTRIBUTE ↗</a>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

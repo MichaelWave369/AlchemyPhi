@@ -1,0 +1,11 @@
+{
+  "name": "alchemyphi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open seven-operation transformation workbench",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
